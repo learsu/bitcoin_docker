@@ -6,6 +6,8 @@ Docker for bitcoin core/abc fullnode
 * Bitcoin Core 0.15.1
 * Bitcoin ABC v0.16.1
 
+如果你想在一台机器同时跑main/testnet，请修改docker build中的image名字和docker run中的tag。
+
 ## Install Docker
 ```
 #root权限登陆安装Docker
@@ -26,7 +28,7 @@ service docker restart
 ```
 mkdir -p /work
 cd /work
-git clone git@github.com:learsu/bitcoin_docker.git
+git clone https://github.com/learsu/bitcoin_docker.git
 cd bitcoin_docker/
 ```
 
