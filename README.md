@@ -73,7 +73,7 @@ docker exec -it bitcoind /bin/bash
 ```
 mkdir -p /work
 cd /work
-git clone git@github.com:learsu/bitcoin_docker.git
+git clone https://github.com/learsu/bitcoin_docker.git
 cd bitcoin_docker/
 ```
 
