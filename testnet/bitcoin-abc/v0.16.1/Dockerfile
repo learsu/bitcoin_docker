@@ -38,7 +38,7 @@ ADD logrotate-bitcoind /etc/logrotate.d/bitcoind
 #
 # service for testnet3
 RUN mkdir        /etc/service/bitcoind_testnet3
-ADD run_testnet3 /etc/service/bitcoind_testnet3/run
+ADD run_testnet /etc/service/bitcoind_testnet3/run
 RUN chmod +x     /etc/service/bitcoind_testnet3/run
 
 # remove source & build files
