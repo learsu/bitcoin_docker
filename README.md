@@ -114,7 +114,7 @@ docker exec -it bitcoind /bin/bash
 
 ## About config
 
-* Bitcoin Core 0.15.1 
+### Bitcoin Core 0.15.1 
 ```
 rpcuser=bitcoin
 rpcpassword=123456
@@ -127,7 +127,7 @@ rpc port 8331/8332/8333
 rpc port 18331/18332/18333
 ```
 
-* Bitcoin ABC v0.16.1
+### Bitcoin ABC v0.16.1
 ```
 rpcuser=bitcoin
 rpcpassword=123456
