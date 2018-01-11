@@ -111,3 +111,31 @@ docker run -it -v /work/bitcoind:/root/.bitcoin --name bitcoind -p 18333:18333 -
 #### login
 docker exec -it bitcoind /bin/bash
 ```
+
+## About config
+
+* Bitcoin Core 0.15.1 
+```
+rpcuser=bitcoin
+rpcpassword=123456
+rpcthreads=4
+dbcache=1000
+
+#main
+rpc port 8331/8332/8333
+#testnet
+rpc port 18331/18332/18333
+```
+
+* Bitcoin ABC v0.16.1
+```
+rpcuser=bitcoin
+rpcpassword=123456
+rpcthreads=4
+dbcache=1000
+
+#main
+rpc port 9331/9332/9333
+#testnet
+rpc port 19331/19332/19333
+```
