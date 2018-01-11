@@ -17,7 +17,7 @@ curl -sSL https://get.daocloud.io/docker | sh
 service docker start
 service docker status
 
-#Docker 加速器 仅限国内服务器
+#Docker 加速器 仅限国内服务器 可直接在https://www.daocloud.io申请自己的账户替换自己的地址
 curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://33a88d17.m.daocloud.io
 service docker restart
 ```
@@ -28,7 +28,6 @@ mkdir -p /work
 cd /work
 git clone git@github.com:learsu/bitcoin_docker.git
 cd bitcoin_docker/
-
 ```
 
 ### Build bitcoin cash Docker Images
@@ -74,7 +73,6 @@ mkdir -p /work
 cd /work
 git clone git@github.com:learsu/bitcoin_docker.git
 cd bitcoin_docker/
-
 ```
 
 ### Build bitcoin cash Docker Images
