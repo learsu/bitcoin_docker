@@ -113,6 +113,12 @@ docker exec -it bitcoind /bin/bash
 ```
 
 ## About config
+```
+#根据CPU个数配置
+rpcthreads=4
+#根据内存配置
+dbcache=1000
+```
 
 ### Bitcoin Core 0.15.1 
 ```
