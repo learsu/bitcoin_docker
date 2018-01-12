@@ -82,15 +82,15 @@ cd bitcoin_docker/
 ```
 # build
 cd /work/bitcoin_docker/testnet/bitcoin-abc/v0.16.1
-docker build -t bitcoin-abc:0.16.1 .
-# docker build --no-cache -t bitcoin-abc:0.16.1 .
+docker build -t bitcoin-abc-testnet:0.16.1 .
+# docker build --no-cache -t bitcoin-abc-testnet:0.16.1 .
 mkdir -p /work/bitcoin-abc
 cp ./bitcoin.conf /work/bitcoin-abc/bitcoin.conf
 ```
 
 ### Start Docker Container
 ```
-docker run -it -v /work/bitcoin-abc:/root/.bitcoin --name bitcoin-abc -p 19333:18333 -p 19332:18332 -p 19331:18331 --restart always -d bitcoin-abc:0.16.1
+docker run -it -v /work/bitcoin-abc:/root/.bitcoin --name bitcoin-abc-testnet -p 19333:18333 -p 19332:18332 -p 19331:18331 --restart always -d bitcoin-abc-testnet:0.16.1
 
 #### login
 docker exec -it bitcoin-abc /bin/bash
@@ -100,15 +100,15 @@ docker exec -it bitcoin-abc /bin/bash
 ### Build bitcoin core Docker Images
 ```
 cd /work/bitcoin_docker/testnet/bitcoin-core/v0.15.1
-docker build -t bitcoind:0.15.1 .
-# docker build --no-cache -t bitcoind:0.15.1 .
+docker build -t bitcoind-testnet:0.15.1 .
+# docker build --no-cache -t bitcoind-testnet:0.15.1 .
 mkdir -p /work/bitcoind
 cp ./bitcoin.conf /work/bitcoind/bitcoin.conf
 ```
 
 ### Start Docker Container
 ```
-docker run -it -v /work/bitcoind:/root/.bitcoin --name bitcoind -p 18333:18333 -p 18332:18332 -p 18331:18331 --restart always -d bitcoind:0.15.1
+docker run -it -v /work/bitcoind:/root/.bitcoin --name bitcoind-testnet -p 18333:18333 -p 18332:18332 -p 18331:18331 --restart always -d bitcoind-testnet:0.15.1
 
 #### login
 docker exec -it bitcoind /bin/bash

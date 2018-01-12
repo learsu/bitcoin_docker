@@ -13,7 +13,7 @@ ENV TERM xterm
 CMD ["/sbin/my_init"]
 
 # use aliyun source
-ADD sources-aliyun.com.list /etc/apt/sources.list
+#ADD sources-aliyun.com.list /etc/apt/sources.list
 
 RUN apt-get update
 RUN apt-get install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python3
