@@ -5,6 +5,7 @@ Docker for bitcoin core/abc fullnode
 * Docker Image OS: `Ubuntu 16.04 LTS`
 * Bitcoin Core 0.15.1
 * Bitcoin ABC v0.16.1
+* Bitcoin ABC v0.16.2 (如果你想使用此版本，请修改相关的目录位置和编译版本)
 
 ## Install Docker
 ```
