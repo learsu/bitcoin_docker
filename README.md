@@ -21,6 +21,10 @@ service docker status
 #Docker 加速器 仅限国内服务器 可直接在https://www.daocloud.io申请自己的账户替换自己的地址
 curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://33a88d17.m.daocloud.io
 service docker restart
+
+docker ps -a -q | xargs docker stop
+docker ps -a -q | xargs docker start
+docker ps -a -q | xargs docker restart
 ```
 
 ## main
