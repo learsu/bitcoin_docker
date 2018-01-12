@@ -29,6 +29,7 @@ service docker restart
 docker ps -a -q | xargs docker stop
 docker ps -a -q | xargs docker start
 docker ps -a -q | xargs docker restart
+docker ps -a -q | xargs docker rm
 ```
 
 ## main
