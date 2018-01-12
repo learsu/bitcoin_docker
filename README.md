@@ -3,7 +3,9 @@ Docker for bitcoin core/abc fullnode
 
 * OS: `Ubuntu 16.04 LTS`
 * Docker Image OS: `Ubuntu 16.04 LTS`
+## Bitcoin Core
 * Bitcoin Core 0.15.1
+## Bitcoin ABC
 * Bitcoin ABC v0.16.1
 * Bitcoin ABC v0.16.2 (如果你想使用此版本，请修改相关的目录位置和编译版本)
 
@@ -38,19 +40,30 @@ cd bitcoin_docker/
 ### Build bitcoin cash Docker Images
 
 ```
-# build
+# build Bitcoin ABC v0.16.1
 cd /work/bitcoin_docker/main/bitcoin-abc/v0.16.1
 docker build -t bitcoin-abc:0.16.1 .
 # docker build --no-cache -t bitcoin-abc:0.16.1 .
+
+# build Bitcoin ABC v0.16.2
+cd /work/bitcoin_docker/main/bitcoin-abc/v0.16.2
+docker build -t bitcoin-abc:0.16.2 .
+# docker build --no-cache -t bitcoin-abc:0.16.2 .
+
 mkdir -p /work/bitcoin-abc
 cp ./bitcoin.conf /work/bitcoin-abc/bitcoin.conf
+
 ```
 
 ### Start Docker Container
 ```
+# start Bitcoin ABC v0.16.1
 docker run -it -v /work/bitcoin-abc:/root/.bitcoin --name bitcoin-abc -p 9333:8333 -p 9332:8332 -p 9331:8331 --restart always -d bitcoin-abc:0.16.1
 
-#### login
+# start Bitcoin ABC v0.16.2
+docker run -it -v /work/bitcoin-abc:/root/.bitcoin --name bitcoin-abc -p 9333:8333 -p 9332:8332 -p 9331:8331 --restart always -d bitcoin-abc:0.16.2
+
+# login
 docker exec -it bitcoin-abc /bin/bash
 ```
 
@@ -68,7 +81,7 @@ cp ./bitcoin.conf /work/bitcoind/bitcoin.conf
 ```
 docker run -it -v /work/bitcoind:/root/.bitcoin --name bitcoind -p 8333:8333 -p 8332:8332 -p 8331:8331 --restart always -d bitcoind:0.15.1
 
-#### login
+# login
 docker exec -it bitcoind /bin/bash
 ```
 
@@ -83,19 +96,29 @@ cd bitcoin_docker/
 ### Build bitcoin cash Docker Images
 
 ```
-# build
+# build Bitcoin ABC v0.16.1
 cd /work/bitcoin_docker/testnet/bitcoin-abc/v0.16.1
 docker build -t bitcoin-abc-testnet:0.16.1 .
 # docker build --no-cache -t bitcoin-abc-testnet:0.16.1 .
+
+# build Bitcoin ABC v0.16.2
+cd /work/bitcoin_docker/testnet/bitcoin-abc/v0.16.2
+docker build -t bitcoin-abc-testnet:0.16.2 .
+# docker build --no-cache -t bitcoin-abc-testnet:0.16.2 .
+
 mkdir -p /work/bitcoin-abc
 cp ./bitcoin.conf /work/bitcoin-abc/bitcoin.conf
 ```
 
 ### Start Docker Container
 ```
+# start Bitcoin ABC v0.16.1
 docker run -it -v /work/bitcoin-abc:/root/.bitcoin --name bitcoin-abc-testnet -p 19333:18333 -p 19332:18332 -p 19331:18331 --restart always -d bitcoin-abc-testnet:0.16.1
 
-#### login
+# start Bitcoin ABC v0.16.2
+docker run -it -v /work/bitcoin-abc:/root/.bitcoin --name bitcoin-abc-testnet -p 19333:18333 -p 19332:18332 -p 19331:18331 --restart always -d bitcoin-abc-testnet:0.16.2
+
+# login
 docker exec -it bitcoin-abc /bin/bash
 ```
 
@@ -113,7 +136,7 @@ cp ./bitcoin.conf /work/bitcoind/bitcoin.conf
 ```
 docker run -it -v /work/bitcoind:/root/.bitcoin --name bitcoind-testnet -p 18333:18333 -p 18332:18332 -p 18331:18331 --restart always -d bitcoind-testnet:0.15.1
 
-#### login
+# login
 docker exec -it bitcoind /bin/bash
 ```
 
