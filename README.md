@@ -9,7 +9,7 @@ Docker for bitcoin core/abc fullnode
 
 ### Bitcoin ABC
 * Bitcoin ABC v0.16.1
-* Bitcoin ABC v0.16.2 （目前有点问题，等我调试一下再用）
+* Bitcoin ABC v0.16.2
 
 ## Install Docker
 ```
