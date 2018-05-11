@@ -6,10 +6,12 @@ Docker for bitcoin core/abc fullnode
 
 ### Bitcoin Core
 * Bitcoin Core 0.15.1
+* Bitcoin Core 0.16.0
 
 ### Bitcoin ABC
 * Bitcoin ABC v0.16.1
 * Bitcoin ABC v0.16.2
+* Bitcoin ABC v0.17.1
 
 ## Install Docker
 ```
