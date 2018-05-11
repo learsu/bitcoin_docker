@@ -40,7 +40,7 @@ git clone https://github.com/learsu/bitcoin_docker.git
 cd bitcoin_docker/
 ```
 
-### Build bitcoin cash Docker Images
+### Build bitcoin cash mainnet Docker Images
 
 ```
 # build Bitcoin ABC v0.16.1
@@ -79,7 +79,7 @@ docker exec -it bitcoin-abc /bin/bash
 ```
 
 
-### Build bitcoin core Docker Images
+### Build bitcoin core mainnet Docker Images
 ```
 # build Bitcoin core v0.15.1
 cd /work/bitcoin_docker/main/bitcoin-core/v0.15.1
@@ -115,7 +115,7 @@ git clone https://github.com/learsu/bitcoin_docker.git
 cd bitcoin_docker/
 ```
 
-### Build bitcoin cash Docker Images
+### Build bitcoin cash testnet Docker Images
 
 ```
 # build Bitcoin ABC v0.16.1
@@ -153,7 +153,7 @@ docker exec -it bitcoin-abc /bin/bash
 ```
 
 
-### Build bitcoin core Docker Images
+### Build bitcoin core testnet Docker Images
 ```
 # build Bitcoin core v0.15.1
 cd /work/bitcoin_docker/testnet/bitcoin-core/v0.15.1
