@@ -32,7 +32,7 @@ docker ps -a -q | xargs docker restart
 docker ps -a -q | xargs docker rm
 ```
 
-## main
+## mainnet
 ```
 mkdir -p /work
 cd /work
