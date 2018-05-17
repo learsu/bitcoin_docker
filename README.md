@@ -13,6 +13,9 @@ Docker for bitcoin core/abc fullnode
 * Bitcoin ABC v0.16.2
 * Bitcoin ABC v0.17.1
 
+### segwit2x
+* Bitcoin segwit2x v1.15.0
+
 ## Install Docker
 ```
 #root权限登陆安装Docker
@@ -80,7 +83,6 @@ docker run -it -v /work/bitcoin-abc:/root/.bitcoin --name bitcoin-abc -p 9333:83
 docker exec -it bitcoin-abc /bin/bash
 ```
 
-
 ### Build bitcoin core mainnet Docker Images
 ```
 # build Bitcoin core v0.15.1
@@ -108,6 +110,30 @@ docker run -it -v /work/bitcoind:/root/.bitcoin --name bitcoind -p 8333:8333 -p 
 # login
 docker exec -it bitcoind /bin/bash
 ```
+
+
+
+### Build segwit2x mainnet Docker Images
+```
+# build segwit2x v1.15.0
+cd /work/bitcoin_docker/main/segwit2x/v1.15.0
+docker build -t segwit2x:1.15.0 .
+# docker build --no-cache -t segwit2x:1.15.0 .
+
+mkdir -p /work/segwit2x
+cp ./bitcoin.conf /work/segwit2x/bitcoin.conf
+```
+
+### Start Docker Container
+```
+# start segwit2x
+docker run -it -v /work/segwit2x:/root/.bitcoin --name bitcoind -p 7333:8333 -p 7332:8332 -p 7331:8331 --restart always -d segwit2x:1.15.0
+
+# login
+docker exec -it bitcoind /bin/bash
+```
+
+
 
 ## testnet
 ```
@@ -154,7 +180,6 @@ docker run -it -v /work/bitcoin-abc:/root/.bitcoin --name bitcoin-abc-testnet -p
 docker exec -it bitcoin-abc /bin/bash
 ```
 
-
 ### Build bitcoin core testnet Docker Images
 ```
 # build Bitcoin core v0.15.1
@@ -182,6 +207,30 @@ docker run -it -v /work/bitcoind:/root/.bitcoin --name bitcoind-testnet -p 18333
 # login
 docker exec -it bitcoind /bin/bash
 ```
+
+
+
+
+### Build segwit2x testnet Docker Images
+```
+# build segwit2x v1.15.0
+cd /work/bitcoin_docker/testnet/segwit2x/v1.15.0
+docker build -t segwit2x-testnet:1.15.0 .
+# docker build --no-cache -t segwit2x-testnet:1.15.0 .
+
+mkdir -p /work/segwit2x
+cp ./bitcoin.conf /work/segwit2x/bitcoin.conf
+```
+
+### Start Docker Container
+```
+# start segwit2x v1.15.0
+docker run -it -v /work/segwit2x:/root/.bitcoin --name bitcoind-testnet -p 17333:18333 -p 17332:18332 -p 17331:18331 --restart always -d segwit2x-testnet:1.15.0
+
+# login
+docker exec -it bitcoind /bin/bash
+```
+
 
 ## About config
 ```
