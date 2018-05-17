@@ -45,9 +45,11 @@ git clone https://github.com/learsu/bitcoin_docker.git
 cd bitcoin_docker/
 ```
 
-### Build bitcoin cash mainnet Docker Images
+### Bitcoin ABC
 
 ```
+/* Build bitcoin cash mainnet Docker Images */
+
 # build Bitcoin ABC v0.16.1
 cd /work/bitcoin_docker/main/bitcoin-abc/v0.16.1
 docker build -t bitcoin-abc:0.16.1 .
@@ -66,10 +68,8 @@ docker build -t bitcoin-abc:0.17.1 .
 mkdir -p /work/bitcoin-abc
 cp ./bitcoin.conf /work/bitcoin-abc/bitcoin.conf
 
-```
+/* Start Docker Container */
 
-### Start Docker Container
-```
 # start Bitcoin ABC v0.16.1
 docker run -it -v /work/bitcoin-abc:/root/.bitcoin --name bitcoin-abc -p 9333:8333 -p 9332:8332 -p 9331:8331 --restart always -d bitcoin-abc:0.16.1
 
@@ -83,8 +83,10 @@ docker run -it -v /work/bitcoin-abc:/root/.bitcoin --name bitcoin-abc -p 9333:83
 docker exec -it bitcoin-abc /bin/bash
 ```
 
-### Build bitcoin core mainnet Docker Images
+### Bitcoin Core
 ```
+/* Build bitcoin core mainnet Docker Images */
+
 # build Bitcoin core v0.15.1
 cd /work/bitcoin_docker/main/bitcoin-core/v0.15.1
 docker build -t bitcoind:0.15.1 .
@@ -97,10 +99,9 @@ docker build -t bitcoind:0.16.0 .
 
 mkdir -p /work/bitcoind
 cp ./bitcoin.conf /work/bitcoind/bitcoin.conf
-```
 
-### Start Docker Container
-```
+/* Start Docker Container */
+
 # start Bitcoin core v0.15.1
 docker run -it -v /work/bitcoind:/root/.bitcoin --name bitcoind -p 8333:8333 -p 8332:8332 -p 8331:8331 --restart always -d bitcoind:0.15.1
 
@@ -113,8 +114,10 @@ docker exec -it bitcoind /bin/bash
 
 
 
-### Build segwit2x mainnet Docker Images
+### segwit2x
 ```
+/* Build segwit2x mainnet Docker Images */
+
 # build segwit2x v1.15.0
 cd /work/bitcoin_docker/main/segwit2x/v1.15.0
 docker build -t segwit2x:1.15.0 .
@@ -122,10 +125,9 @@ docker build -t segwit2x:1.15.0 .
 
 mkdir -p /work/segwit2x
 cp ./bitcoin.conf /work/segwit2x/bitcoin.conf
-```
 
-### Start Docker Container
-```
+/* Start Docker Container */
+
 # start segwit2x
 docker run -it -v /work/segwit2x:/root/.bitcoin --name bitcoind -p 7333:8333 -p 7332:8332 -p 7331:8331 --restart always -d segwit2x:1.15.0
 
@@ -143,9 +145,11 @@ git clone https://github.com/learsu/bitcoin_docker.git
 cd bitcoin_docker/
 ```
 
-### Build bitcoin cash testnet Docker Images
+### Bitcoin ABC
 
 ```
+/* Build bitcoin cash testnet Docker Images */
+
 # build Bitcoin ABC v0.16.1
 cd /work/bitcoin_docker/testnet/bitcoin-abc/v0.16.1
 docker build -t bitcoin-abc-testnet:0.16.1 .
@@ -163,10 +167,9 @@ docker build -t bitcoin-abc-testnet:0.17.1 .
 
 mkdir -p /work/bitcoin-abc
 cp ./bitcoin.conf /work/bitcoin-abc/bitcoin.conf
-```
 
-### Start Docker Container
-```
+/* Start Docker Container */
+
 # start Bitcoin ABC v0.16.1
 docker run -it -v /work/bitcoin-abc:/root/.bitcoin --name bitcoin-abc-testnet -p 19333:18333 -p 19332:18332 -p 19331:18331 --restart always -d bitcoin-abc-testnet:0.16.1
 
@@ -180,8 +183,10 @@ docker run -it -v /work/bitcoin-abc:/root/.bitcoin --name bitcoin-abc-testnet -p
 docker exec -it bitcoin-abc /bin/bash
 ```
 
-### Build bitcoin core testnet Docker Images
+### Bitcoin Core
 ```
+/* Build bitcoin core testnet Docker Images */
+
 # build Bitcoin core v0.15.1
 cd /work/bitcoin_docker/testnet/bitcoin-core/v0.15.1
 docker build -t bitcoind-testnet:0.15.1 .
@@ -194,10 +199,9 @@ docker build -t bitcoind-testnet:0.16.0 .
 
 mkdir -p /work/bitcoind
 cp ./bitcoin.conf /work/bitcoind/bitcoin.conf
-```
 
-### Start Docker Container
-```
+/* Start Docker Container */
+
 # start Bitcoin core v0.15.1
 docker run -it -v /work/bitcoind:/root/.bitcoin --name bitcoind-testnet -p 18333:18333 -p 18332:18332 -p 18331:18331 --restart always -d bitcoind-testnet:0.15.1
 
@@ -208,11 +212,10 @@ docker run -it -v /work/bitcoind:/root/.bitcoin --name bitcoind-testnet -p 18333
 docker exec -it bitcoind /bin/bash
 ```
 
-
-
-
-### Build segwit2x testnet Docker Images
+### segwit2x
 ```
+/* Build segwit2x testnet Docker Images */
+
 # build segwit2x v1.15.0
 cd /work/bitcoin_docker/testnet/segwit2x/v1.15.0
 docker build -t segwit2x-testnet:1.15.0 .
@@ -220,10 +223,9 @@ docker build -t segwit2x-testnet:1.15.0 .
 
 mkdir -p /work/segwit2x
 cp ./bitcoin.conf /work/segwit2x/bitcoin.conf
-```
 
-### Start Docker Container
-```
+/* Start Docker Container */
+
 # start segwit2x v1.15.0
 docker run -it -v /work/segwit2x:/root/.bitcoin --name bitcoind-testnet -p 17333:18333 -p 17332:18332 -p 17331:18331 --restart always -d segwit2x-testnet:1.15.0
 
@@ -251,6 +253,19 @@ dbcache=1000
 rpc port 8331/8332/8333
 #testnet
 rpc port 18331/18332/18333
+```
+
+### segwit2x
+```
+rpcuser=bitcoin
+rpcpassword=123456
+rpcthreads=4
+dbcache=1000
+
+#main
+rpc port 7331/7332/7333
+#testnet
+rpc port 17331/17332/17333
 ```
 
 ### Bitcoin ABC
