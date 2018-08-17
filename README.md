@@ -7,11 +7,13 @@ Docker for bitcoin core/abc fullnode
 ### Bitcoin Core
 * Bitcoin Core 0.15.1
 * Bitcoin Core 0.16.0
+* Bitcoin Core 0.16.2
 
 ### Bitcoin ABC
 * Bitcoin ABC v0.16.1
 * Bitcoin ABC v0.16.2
 * Bitcoin ABC v0.17.1
+* Bitcoin ABC v0.18.0
 
 ### segwit2x
 * Bitcoin segwit2x v1.15.0
@@ -28,7 +30,7 @@ service docker start
 service docker status
 
 #Docker 加速器 仅限国内服务器 可直接在https://www.daocloud.io申请自己的账户替换自己的地址
-curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://33a88d17.m.daocloud.io
+curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://a53082cb.m.daocloud.io
 service docker restart
 
 docker ps -a -q | xargs docker stop
@@ -65,7 +67,13 @@ cd /work/bitcoin_docker/main/bitcoin-abc/v0.17.1
 docker build -t bitcoin-abc:0.17.1 .
 # docker build --no-cache -t bitcoin-abc:0.17.1 .
 
+# build Bitcoin ABC v0.18.0
+cd /work/bitcoin_docker/main/bitcoin-abc/v0.18.0
+docker build -t bitcoin-abc:0.18.0 .
+# docker build --no-cache -t bitcoin-abc:0.18.0 .
+
 mkdir -p /work/bitcoin-abc
+mkdir -p /work/bitcoin-abc/log
 cp ./bitcoin.conf /work/bitcoin-abc/bitcoin.conf
 
 /* Start Docker Container */
@@ -79,8 +87,12 @@ docker run -it -v /work/bitcoin-abc:/root/.bitcoin --name bitcoin-abc -p 9333:83
 # start Bitcoin ABC v0.17.1
 docker run -it -v /work/bitcoin-abc:/root/.bitcoin --name bitcoin-abc -p 9333:8333 -p 9332:8332 -p 9331:8331 --restart always -d bitcoin-abc:0.17.1
 
+# start Bitcoin ABC v0.18.0
+docker run -it -v /work/bitcoin-abc:/root/.bitcoin --name bitcoin-abc -p 9333:8333 -p 9332:8332 -p 9331:8331 --restart always -d bitcoin-abc:0.18.0
+
 # login
 docker exec -it bitcoin-abc /bin/bash
+docker exec -it -e LINES=$(tput lines) -e COLUMNS=$(tput cols) bitcoin-abc /bin/bash
 ```
 
 ### Bitcoin Core
@@ -97,7 +109,13 @@ cd /work/bitcoin_docker/main/bitcoin-core/v0.16.0
 docker build -t bitcoind:0.16.0 .
 # docker build --no-cache -t bitcoind:0.16.0 .
 
+# build Bitcoin core v0.16.2
+cd /work/bitcoin_docker/main/bitcoin-core/v0.16.2
+docker build -t bitcoind:0.16.2 .
+# docker build --no-cache -t bitcoind:0.16.2 .
+
 mkdir -p /work/bitcoind
+mkdir -p /work/bitcoind/log
 cp ./bitcoin.conf /work/bitcoind/bitcoin.conf
 
 /* Start Docker Container */
@@ -108,8 +126,12 @@ docker run -it -v /work/bitcoind:/root/.bitcoin --name bitcoind -p 8333:8333 -p 
 # start Bitcoin core v0.16.0
 docker run -it -v /work/bitcoind:/root/.bitcoin --name bitcoind -p 8333:8333 -p 8332:8332 -p 8331:8331 --restart always -d bitcoind:0.16.0
 
+# start Bitcoin core v0.16.2
+docker run -it -v /work/bitcoind:/root/.bitcoin --name bitcoind -p 8333:8333 -p 8332:8332 -p 8331:8331 --restart always -d bitcoind:0.16.2
+
 # login
 docker exec -it bitcoind /bin/bash
+docker exec -it -e LINES=$(tput lines) -e COLUMNS=$(tput cols) bitcoind /bin/bash
 ```
 
 
@@ -133,6 +155,7 @@ docker run -it -v /work/segwit2x:/root/.bitcoin --name bitcoind -p 7333:8333 -p 
 
 # login
 docker exec -it bitcoind /bin/bash
+docker exec -it -e LINES=$(tput lines) -e COLUMNS=$(tput cols) bitcoind /bin/bash
 ```
 
 
@@ -181,6 +204,7 @@ docker run -it -v /work/bitcoin-abc:/root/.bitcoin --name bitcoin-abc-testnet -p
 
 # login
 docker exec -it bitcoin-abc /bin/bash
+docker exec -it -e LINES=$(tput lines) -e COLUMNS=$(tput cols) bitcoin-abc /bin/bash
 ```
 
 ### Bitcoin Core
@@ -210,6 +234,7 @@ docker run -it -v /work/bitcoind:/root/.bitcoin --name bitcoind-testnet -p 18333
 
 # login
 docker exec -it bitcoind /bin/bash
+docker exec -it -e LINES=$(tput lines) -e COLUMNS=$(tput cols) bitcoind /bin/bash
 ```
 
 ### segwit2x
@@ -231,6 +256,7 @@ docker run -it -v /work/segwit2x:/root/.bitcoin --name bitcoind-testnet -p 17333
 
 # login
 docker exec -it bitcoind /bin/bash
+docker exec -it -e LINES=$(tput lines) -e COLUMNS=$(tput cols) bitcoind /bin/bash
 ```
 
 
